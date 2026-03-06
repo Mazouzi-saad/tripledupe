@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import Navbar from "./components/Navbar/Navbar";
+import HeroImage from "./components/HeroImage/HeroImage";
+import Contact from "./components/Contact/Contact";
+import Products from "./components/Product/Products";
+import ProductDetails from "./components/Product/ProductDetails";
+import { CartProvider } from "./components/Context/CartContext";
+import { SearchProvider } from "./components/Context/SearchContext"; // 🔥 AJOUT
+import CartDrawer from "./components/CartDrawer/CartDrawer";
 
-function App() {
+function Home() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <HeroImage />
+      <Products />
+      <Contact />
+    </>
   );
 }
 
-export default App;
+export default function App() {
+  const [cartOpen, setCartOpen] = useState(false);
+
+  return (
+    <SearchProvider> {/* 🔥 AJOUTÉ ICI */}
+      <CartProvider>
+        <BrowserRouter>
+          <Navbar onCartClick={() => setCartOpen(true)} />
+
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
+          </Routes>
+
+          <CartDrawer
+            open={cartOpen}
+            onClose={() => setCartOpen(false)}
+          />
+
+        </BrowserRouter>
+      </CartProvider>
+    </SearchProvider>
+  );
+}

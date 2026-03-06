@@ -1,0 +1,242 @@
+/* Page background blanc */
+.contact-page {
+  min-height: 100vh;
+  background: #ffffff;
+  color: #000000;
+  padding: 60px 20px;
+}
+
+/* Container centré */
+.contact-container {
+  width: min(1000px, 100%);
+  margin: 0 auto;
+}
+
+/* Title */
+.contact-title {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+.contact-subtitle {
+  margin-bottom: 40px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Ligne Nom + Email */
+.contact-row {
+  display: flex;
+  gap: 20px;
+}
+
+.contact-row .field {
+  flex: 1;       /* chaque champ prend 50% */
+  min-width: 0;  /* ✅ très important: autorise le shrink */
+}
+
+.field input {
+  width: 100%;
+  box-sizing: border-box; /* ✅ évite les dépassements */
+}
+@media (max-width: 768px) {
+  .contact-row {
+    flex-direction: column;
+  }
+}
+
+/* Field */
+.field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field label {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Inputs */
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 50px;
+  border: 1px solid #000000;
+  background: #ffffff;
+  color: #000000;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+/* Textarea */
+.field textarea {
+  border-radius: 25px;
+  resize: vertical;
+  min-height: 180px;
+}
+
+/* Placeholder */
+.field input::placeholder,
+.field textarea::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+/* Focus */
+.field input:focus,
+.field textarea:focus {
+  border: 1px solid #000000;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Button */
+.contact-btn {
+  margin-top: 10px;
+  padding: 14px 30px;
+  border-radius: 50px;
+  border: 1px solid #000000;
+  background: #000000;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.contact-btn:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* ---------- POPUP MODERNE ---------- */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+  padding: 16px;
+}
+
+.popup-card {
+  width: min(520px, 100%);
+  background: #fff;
+  color: #000;
+  border-radius: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  padding: 22px 22px 18px;
+  position: relative;
+
+  animation: popupIn 180ms ease-out;
+}
+
+@keyframes popupIn {
+  from {
+    transform: translateY(10px) scale(0.98);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+}
+
+.popup-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 12px;
+  font-weight: 800;
+  font-size: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.popup-badge.success {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.popup-badge.error {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.popup-badge.loading {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.popup-title {
+  margin: 0 0 6px 0;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+.popup-message {
+  margin: 0 0 16px 0;
+  color: rgba(0, 0, 0, 0.7);
+  line-height: 1.5;
+}
+
+.popup-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.popup-btn {
+  border-radius: 999px;
+  padding: 10px 18px;
+  border: 1px solid #000;
+  background: #000;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 120ms ease, opacity 120ms ease;
+}
+
+.popup-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+/* Spinner */
+.spinner {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  border-top-color: rgba(0, 0, 0, 0.75);
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,226 @@
+.ck-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  z-index: 9999;
+}
+
+.ck-modal{
+  width: min(520px, 100%);
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px;
+  position: relative;
+  box-shadow: 0 18px 60px rgba(0,0,0,.25);
+  max-height: 90vh;
+  overflow: auto;
+}
+
+.ck-close{
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  font-size: 26px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.ck-title{
+  font-size: 18px;
+  margin: 0 28px 14px 0;
+  font-weight: 700;
+}
+
+.ck-sectionTitle{
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.ck-mt{ margin-top: 14px; }
+
+.ck-shipping{
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.ck-radioRow{
+  display: grid;
+  grid-template-columns: 20px 1fr auto;
+  gap: 10px;
+  padding: 12px;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.ck-radioRow:last-child{ border-bottom: none; }
+
+.ck-radioLabel{
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.ck-radioRight{
+  font-weight: 700;
+}
+
+.ck-form{ margin-top: 10px; }
+
+.ck-field{
+  display: grid;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.ck-field label{
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.ck-field input{
+  padding: 12px 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+}
+
+.ck-field input:focus{
+  border-color: #111;
+}
+
+.ck-summary{
+  background: #f3f3f3;
+  border-radius: 10px;
+  padding: 12px;
+  margin: 12px 0;
+}
+
+.ck-line{
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0;
+}
+
+.ck-total{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.ck-submit{
+  width: 100%;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.ck-submit:disabled{
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+.ck-item{
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid #eee;
+}
+
+.ck-itemImg{
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+.ck-itemTitle{ font-weight: 800; }
+.ck-itemQty{ font-size: 12px; opacity: .75; }
+.ck-itemPrice{ font-weight: 800; }
+
+.ck-alert{
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+}
+
+.ck-alert.success{ border-color: #1a7f37; }
+.ck-alert.error{ border-color: #c1121f; }
+.ck-alert.loading{ border-color: #333; }
+
+/* Overlay succès */
+.ck-successPopup {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Box */
+.ck-successBox {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
+
+/* Check icon */
+.ck-successIcon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  background: #1db954;
+  color: white;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  animation: pop 0.4s ease;
+}
+
+/* Button */
+.ck-successBox button {
+  margin-top: 20px;
+  padding: 10px 25px;
+  background: #1db954;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.ck-successBox button:hover {
+  opacity: 0.9;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes pop {
+  0% { transform: scale(0.5); }
+  100% { transform: scale(1); }
+}
