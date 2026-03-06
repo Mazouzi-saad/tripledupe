@@ -3,7 +3,7 @@ import { useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import HeroImage from "./components/HeroImage/HeroImage";
 import Contact from "./components/Contact/Contact";
-import Products from "./components/Product/products";
+import Products from "./components/Product/Products";
 import ProductDetails from "./components/Product/ProductDetails";
 import { CartProvider } from "./components/Context/CartContext";
 import { SearchProvider } from "./components/Context/Searchcontext";
