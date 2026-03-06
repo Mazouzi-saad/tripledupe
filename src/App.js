@@ -3,10 +3,10 @@ import { useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import HeroImage from "./components/HeroImage/HeroImage";
 import Contact from "./components/Contact/Contact";
-import Products from "./components/Product/Products";
+import Products from "./components/Product/products";
 import ProductDetails from "./components/Product/ProductDetails";
 import { CartProvider } from "./components/Context/CartContext";
-import { SearchProvider } from "./components/Context/SearchContext"; // 🔥 AJOUT
+import { SearchProvider } from "./components/Context/Searchcontext";
 import CartDrawer from "./components/CartDrawer/CartDrawer";
 
 function Home() {
