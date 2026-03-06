@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import "./Products.css";
 import { useNavigate } from "react-router-dom";
-import { useSearch } from "../Context/SearchContext";
+import { useSearch } from "../Context/Searchcontext";
 
 
 const API_URL =
