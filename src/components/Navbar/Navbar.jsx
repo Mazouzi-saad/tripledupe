@@ -3,7 +3,7 @@ import "./Navbar.css";
 import { FiSearch, FiShoppingBag } from "react-icons/fi";
 import { useCart } from "../Context/CartContext";
 import { Link } from "react-router-dom";
-import { useSearch } from "../Context/Searchcontext";
+import { useSearch } from "../Context/SearchContext";
 import { useNavigate } from "react-router-dom";
 import SearchModal from "../SearchModal/SearchModal";
 import { useState } from "react";
