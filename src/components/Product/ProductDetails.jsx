@@ -53,7 +53,7 @@ export default function ProductDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [checkoutOpen, setCheckoutOpen] = useState(false);
-  const openCheckout = () => setCheckoutOpen(true);
+  // const openCheckout = () => setCheckoutOpen(true);
   const closeCheckout = () => setCheckoutOpen(false);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
