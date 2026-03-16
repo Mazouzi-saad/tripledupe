@@ -8,6 +8,8 @@ const ORDER_API_URL =
 export default function CheckoutModal({ open, onClose }) {
   const { cart, total, clearCart } = useCart();
   const [popup, setPopup] = useState({ type: "", title: "", message: "" });
+  const shippingFee = 35;
+  const finalTotal = total + shippingFee;
   
 
   const [form, setForm] = useState({
@@ -40,14 +42,14 @@ export default function CheckoutModal({ open, onClose }) {
 
     const payload = {
       type: "order",
-      shipping: "FREE",
-      shippingFee: 0,
+      shipping: "Standard",
+      shippingFee: shippingFee,
       fullname: form.fullname,
       phone: form.phone,
       address: form.address,
       city: form.city,
       subtotal: total,
-      total,
+      total: finalTotal,
       items: cart,
     };
 
@@ -165,18 +167,20 @@ export default function CheckoutModal({ open, onClose }) {
               <span>Sous-total</span>
               <strong>{total.toFixed(2)} dh</strong>
             </div>
+
             <div className="ck-line">
               <span>Livraison</span>
-              <strong>GRATUITE</strong>
+              <strong>{shippingFee.toFixed(2)} dh</strong>
             </div>
+
             <div className="ck-total">
               <span>Total</span>
-              <strong>{total.toFixed(2)} dh</strong>
+              <strong>{finalTotal.toFixed(2)} dh</strong>
             </div>
           </div>
 
           <button className="ck-submit" type="submit" disabled={isLoading}>
-            Terminez votre achat - {total.toFixed(2)} dh
+            Terminez votre achat - {finalTotal.toFixed(2)} dh
           </button>
         </form>
       </div>

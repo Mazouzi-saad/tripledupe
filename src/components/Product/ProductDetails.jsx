@@ -133,7 +133,7 @@ export default function ProductDetails() {
         </section>
 
         <section className="pd-right">
-          <p className="pd-brand">TWINS FRAGRANCE</p>
+          <p className="pd-brand">TRIPLE DUPE</p>
           <h1 className="pd-title">{product.title}</h1>
 
           <p className="pd-price">{formatPrice(product)}</p>

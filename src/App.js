@@ -8,6 +8,7 @@ import ProductDetails from "./components/Product/ProductDetails";
 import { CartProvider } from "./components/Context/CartContext";
 import { SearchProvider } from "./components/Context/SearchContext";
 import CartDrawer from "./components/CartDrawer/CartDrawer";
+import Footer from "./components/Footer/Footer";
 
 function Home() {
   return (
@@ -15,6 +16,7 @@ function Home() {
       <HeroImage />
       <Products />
       <Contact />
+      <Footer />
     </>
   );
 }
