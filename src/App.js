@@ -10,6 +10,7 @@ import { SearchProvider } from "./components/Context/SearchContext";
 import CartDrawer from "./components/CartDrawer/CartDrawer";
 import Footer from "./components/Footer/Footer";
 import CheckoutModal from "./components/CheckoutModal/CheckoutModal";
+import WhatsAppButton from "./components/WhatsAppButton/WhatsAppButton";
 
 function Home() {
   return (
@@ -18,6 +19,7 @@ function Home() {
       <Products />
       <Contact />
       <Footer />
+      <WhatsAppButton />
     </>
   );
 }

@@ -1,10 +1,30 @@
 import React from "react";
 import { useCart } from "../Context/CartContext";
 import "./CartDrawer.css";
+import { FaWhatsapp } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
+import { FaPlus, FaMinus } from "react-icons/fa";
 
 export default function CartDrawer({ open, onClose, onCheckout }) {
   const { cart, removeFromCart, updateQty, total } = useCart();
+  const handleWhatsApp = () => {
+    if (cart.length === 0) return;
 
+    const text = cart.map(item =>
+      `• ${item.title} x${item.qty}`
+    ).join("\n");
+
+    const message = `Bonjour 
+  Je souhaite commander :  
+
+  ${text}  
+
+  `;
+
+    const url = `https://wa.me/212706712456?text=${encodeURIComponent(message)}`;
+
+    window.open(url, "_blank");
+  };
   if (!open) return null;
 
   return (
@@ -29,9 +49,21 @@ export default function CartDrawer({ open, onClose, onCheckout }) {
               <p>{item.price.toFixed(2)} dh</p>
 
               <div className="cart-qty">
-                <button onClick={() => updateQty(item.id, item.qty - 1)}>−</button>
-                <span>{item.qty}</span>
-                <button onClick={() => updateQty(item.id, item.qty + 1)}>+</button>
+                <button
+                  className="qty-btn"
+                  onClick={() => updateQty(item.id, item.qty - 1)}
+                >
+                  <FaMinus />
+                </button>
+
+                <span className="qty-value">{item.qty}</span>
+
+                <button
+                  className="qty-btn"
+                  onClick={() => updateQty(item.id, item.qty + 1)}
+                >
+                  <FaPlus />
+                </button>
               </div>
             </div>
 
@@ -41,7 +73,7 @@ export default function CartDrawer({ open, onClose, onCheckout }) {
                 className="cart-delete"
                 onClick={() => removeFromCart(item.id)}
               >
-                🗑
+                <FaTrash />
               </button>
             </div>
           </div>
@@ -61,6 +93,16 @@ export default function CartDrawer({ open, onClose, onCheckout }) {
               onClick={onCheckout}
             >
               ACHETER MAINTENANT
+            </button>
+            <button
+              className="cart-whatsapp-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleWhatsApp();
+              }}
+            >
+              <FaWhatsapp className="whatsapp-icon" />
+              COMMANDER VIA WHATSAPP
             </button>
           </>
         )}
