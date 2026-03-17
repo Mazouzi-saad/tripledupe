@@ -9,6 +9,7 @@ import { CartProvider } from "./components/Context/CartContext";
 import { SearchProvider } from "./components/Context/SearchContext";
 import CartDrawer from "./components/CartDrawer/CartDrawer";
 import Footer from "./components/Footer/Footer";
+import CheckoutModal from "./components/CheckoutModal/CheckoutModal";
 
 function Home() {
   return (
@@ -23,6 +24,7 @@ function Home() {
 
 export default function App() {
   const [cartOpen, setCartOpen] = useState(false);
+  const [checkoutOpen, setCheckoutOpen] = useState(false);
 
   return (
     <SearchProvider> {/* 🔥 AJOUTÉ ICI */}
@@ -38,8 +40,15 @@ export default function App() {
           <CartDrawer
             open={cartOpen}
             onClose={() => setCartOpen(false)}
+            onCheckout={() => {
+              setCartOpen(false);      // ferme panier
+              setCheckoutOpen(true);   // ouvre checkout
+            }}
           />
-
+          <CheckoutModal
+            open={checkoutOpen}
+            onClose={() => setCheckoutOpen(false)}
+          />
         </BrowserRouter>
       </CartProvider>
     </SearchProvider>

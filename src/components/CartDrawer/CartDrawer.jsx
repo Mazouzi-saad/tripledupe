@@ -13,7 +13,7 @@ export default function CartDrawer({ open, onClose, onCheckout }) {
 
         <div className="cart-header">
           <h2>Votre panier</h2>
-          <button onClick={onClose}>×</button>
+          <button className="cart-close" onClick={onClose}>×</button>
         </div>
 
         {cart.length === 0 && (
@@ -37,7 +37,12 @@ export default function CartDrawer({ open, onClose, onCheckout }) {
 
             <div className="cart-right">
               <p>{(item.price * item.qty).toFixed(2)} dh</p>
-              <button onClick={() => removeFromCart(item.id)}>🗑</button>
+              <button
+                className="cart-delete"
+                onClick={() => removeFromCart(item.id)}
+              >
+                🗑
+              </button>
             </div>
           </div>
         ))}
