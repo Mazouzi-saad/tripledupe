@@ -5,7 +5,7 @@ import "./WhatsAppButton.css";
 export default function WhatsAppButton() {
   const handleClick = () => {
     const message = "Bonjour, j'ai une question concernant vos produits.";
-    const url = `https://wa.me/212706712456?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/212631469976?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   };
 
